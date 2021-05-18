@@ -65,13 +65,6 @@ public class Principal {
 							matriz1[i][j] = scan.nextInt();
 						}
 					}
-					System.out.println("Matriz 1 preenchida");
-					for(int i = 0; i < lin; i++) {
-						for(int j = 0; j < col; j++) {
-							System.out.print(matriz1[i][j] + " ");
-						}
-						System.out.println();
-					}
 					
 				}
 				switch(operacao) {
@@ -104,9 +97,9 @@ public class Principal {
 						break;
 						
 					case 3: System.out.println();
-						for (int i = 0; i < (2 * lin); i++)
+						for (int i = 0; i < 15; i++)
 						{
-							for (int j = 0; j < (2 * col); j++)
+							for (int j = 0; j < 15; j++)
 							{
 								if (i < lin && j < col)
 									System.out.print(matriz1[i][j] + " ");
@@ -116,21 +109,25 @@ public class Principal {
 							System.out.println();
 						}
 						System.out.println();
-						
-						//matriztrans = new int[3][3];
+												
 						int matriztrans[][] = 
 						{
-								{1, 2, 3},
-								{3, 4, 5},
-								{4, 5, 6}
+								{1, 0, -1},
+								{0, 1, -1},
+								{0, 0, 1}
 
 						};
 						int matrizpos[][] = {
-								{1},
-								{2},
-								{3}
+								{0},
+								{0},
+								{1}
 						};
 						matrizres = new int[3][1];
+						
+						System.out.println("\nQuantas unidades de deslocamento à direita:\n");
+						matriztrans[1][2] = scan.nextInt();
+						System.out.println("\nQuantas unidades de deslocamento para baixo:\n");
+						matriztrans[0][2] = scan.nextInt();
 						
 						  for(int i = 0; i < 3; i++)
 						  {
@@ -150,6 +147,28 @@ public class Principal {
 								System.out.println();			
 						  
 						  }
+						System.out.println();
+						int m = 0;
+						
+						for (int i = 0; i < (15); i++)
+						{
+							int n = 0;
+							for (int j = 0; j < (15); j++)
+							{
+								if (i >= matrizres[0][0] && i < (matrizres[0][0] + lin) && j >= matrizres[1][0] && j < (matrizres[1][0] + col))
+								{
+									System.out.print(matriz1[m][n] + " ");
+									n++;
+									if (n >=col)
+										m++;
+								}
+								else
+									System.out.print("* ");
+								
+							}
+							System.out.println();
+						}
+						System.out.println();
 						
 						break;
 					case 0: System.out.println("Operação finalizada");
